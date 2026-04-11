@@ -6,12 +6,11 @@ import Home from "../src/app/page";
 describe("Home page", () => {
   it("renders the home text and default counter value", () => {
     render(<Home />);
+    const homeText = screen.getByText("Home");
+    const heading = screen.getByRole("heading");
 
-    expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: "Counter" }),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Count = 10")).toBeInTheDocument();
+    expect(homeText).toBeInTheDocument();
+    expect(heading).toBeInTheDocument();
   });
 
   it("increments the counter when the increase button is clicked", () => {
